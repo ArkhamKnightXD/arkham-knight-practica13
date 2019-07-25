@@ -7,4 +7,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface EncuestaRepository extends JpaRepository<Encuesta, Long> {
 
+    Encuesta findEncuestaById(Long id);
+
 }
