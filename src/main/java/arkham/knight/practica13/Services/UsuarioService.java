@@ -60,4 +60,9 @@ public class UsuarioService {
         return rolRepo.findRolById(id);
     }
 
+    public void borrarTodosLosUsuarios(){
+
+        usuarioRepo.deleteAll();
+    }
+
 }

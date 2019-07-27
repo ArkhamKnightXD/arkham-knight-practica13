@@ -28,72 +28,23 @@
 
     <section class="content-header">
         <h1 class="text-center">
-            <strong>Editar componente</strong>
+            <strong>Encuesta completada de
+
+                forma exitosa</strong>
         </h1>
 
         <br>
     </section>
 
 
-    <form method="post" class="form-horizontal" action="/componente/editar/?id=${componente.id}">
-        <div class="row">
-
             <div class="form-group">
-                <label for="descripcion" class="control-label col-md-3">Descripcion del componente:</label>
-
-                <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6">
-                    <input type="text" name="descripcion" value="${componente.descripcion}" class="form-control" required placeholder="Descripcion...">
-                </div>
-
-            </div>
-
-
-
-            <div class="form-group">
-                <label for="codigoAlmacen" class="control-label col-md-3">Codigo del almacen:</label>
-
-                <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6">
-                    <input type="text" name="codigoAlmacen" value="${componente.codigoAlmacen}" class="form-control " placeholder="Codigo del almacen...">
-                </div>
-
-            </div>
-
-
-
-            <div class="form-group">
-                <label for="stock" class="control-label col-md-3">Balance actual:</label>
-
-                <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6">
-                    <input type="number" name="stock" value="${componente.stock}" class="form-control" required placeholder="Stock...">
-                </div>
-
-            </div>
-
-
-            <div class="form-group">
-                <label for="precioUnidadCompra" class="control-label col-md-3">Precio por unidad:</label>
-
-                <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6">
-                    <input type="text" name="precioUnidadCompra" value="${componente.precioUnidadCompra}" class="form-control" placeholder="Precio por unidad...">
-                </div>
-
-            </div>
-
-
-
-            <div class="form-group">
-                <button class="btn btn-primary col-md-offset-5" type="submit">Guardar</button>
-                <a class="btn btn-danger" href="/componente/" role="button">Cancelar</a>
+                <a class="btn btn-danger" href="/" role="button">Dar otra respuesta</a>
             </div>
 
 
         </div>
 
 
-    </form>
-
-
-</div>
 
 </body>
 </html>

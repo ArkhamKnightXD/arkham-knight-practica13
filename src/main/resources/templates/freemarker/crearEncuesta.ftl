@@ -28,7 +28,7 @@
 
     <section class="content-header">
         <h1 class="text-center">
-            <strong>Realice la encuesta sobre la charla</strong>
+            <strong>Realice la encuesta sobre las charlas</strong>
         </h1>
 
         <br>
@@ -61,7 +61,7 @@
 
 
             <div class="form-group">
-                <label for="instalacionesConfortable" class="control-label col-md-3">Las instalaciones eran confortables:</label>
+                <label for="instalacionesConfortables" class="control-label col-md-3">Las instalaciones eran confortables:</label>
 
                 <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6">
                     <input type="number" name="instalacionesConfortables" class="form-control" required placeholder="Instalaciones confortables...">
@@ -82,8 +82,7 @@
 
 
             <div class="form-group">
-                <button class="btn btn-primary col-md-offset-5" type="submit">Guardar</button>
-                <a class="btn btn-danger" href="/inicio" role="button">Cancelar</a>
+                <button class="btn btn-primary col-md-offset-3" type="submit">Enviar</button>
             </div>
 
 

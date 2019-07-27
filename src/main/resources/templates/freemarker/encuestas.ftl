@@ -171,7 +171,7 @@
                 <strong>Listado de encuestas realizadas</strong>
             </h1>
 
-            <a class="btn btn-primary" href="/" role="button">Realizar nueva encuesta</a>
+            <a class="btn btn-primary" href="/encuesta/creacion" role="button">Realizar nueva encuesta</a>
 
 
         </section>
