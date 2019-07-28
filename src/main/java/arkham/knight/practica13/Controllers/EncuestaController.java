@@ -2,12 +2,15 @@ package arkham.knight.practica13.Controllers;
 
 import arkham.knight.practica13.Models.Encuesta;
 import arkham.knight.practica13.Services.EncuestaService;
+import arkham.knight.practica13.Services.SeguridadService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.Locale;
 
 
 @Controller
@@ -17,6 +20,16 @@ public class EncuestaController {
     @Autowired
     private EncuestaService encuestaService;
 
+    @Autowired
+    private SeguridadService seguridadService;
+
+
+    //Aqui manejo indico el login de mi aplicacion y trabajo en conjunto con la configuracion de seguridad
+    @RequestMapping("/login")
+    public String login(Model model){
+
+        return "/freemarker/login";
+    }
 
     @RequestMapping("/index")
     public String index(Model model){
@@ -32,6 +45,8 @@ public class EncuestaController {
 
     @RequestMapping("/")
     public String creacionEncuesta(Model model){
+
+        //seguridadService.crearUsuarioAdmin();
 
         model.addAttribute("titulo", "Encuesta Bar Camp");
 

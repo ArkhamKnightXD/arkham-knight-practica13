@@ -32,7 +32,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 
 
-        //Configuracion y carga de usuarios metodo JPA de esta forma agregaremos nuestro usuario a la base de datos c
         auth
                 .userDetailsService(seguridadService)
                 .passwordEncoder(bCryptPasswordEncoder);
@@ -44,19 +43,18 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
 
-                //Aqui especifico que permito que cualquiera pueda acceder a estas url
-                .antMatchers("/css/**", "/js/**").permitAll()
+                .antMatchers("/css/**","/hazelcast/**", "/js/**").permitAll()
                 .antMatchers("/dbconsole/**").permitAll()
 
                 //.antMatchers("/usuario/**").hasAnyRole("ADMIN")
                 //.antMatchers("/cliente/**").hasAnyRole("ADMIN", "USER")
                 //.antMatchers("/equipo/**").hasAnyRole("ADMIN", "USER")
                 //.antMatchers("/familia/**").hasAnyRole("ADMIN", "USER")
-                .antMatchers("/").hasAnyRole("ADMIN", "USER")
+                //.antMatchers("/").hasAnyRole("ADMIN", "USER")
                 // .anyRequest().authenticated() //cualquier llamada debe ser validada
                 .and()
                 .formLogin()// Esta se encarga de llamar al login por defecto
-                //.loginPage("/login") //indicando la ruta que estaremos utilizando, sino vamos a utilizar el login por defecto.
+                .loginPage("/login") //indicando la ruta que estaremos utilizando, sino vamos a utilizar el login por defecto.
                 //.failureUrl("/login?error") //en caso de fallar puedo indicar otra pagina, esta url la utilizare para
                 // indicar cuando hay algun error en la aplicacion y mandare la pagina que aqui designe
                 .permitAll()

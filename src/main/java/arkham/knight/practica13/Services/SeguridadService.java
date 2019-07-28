@@ -13,6 +13,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.lang.reflect.Array;
 import java.util.*;
 
 @Service
@@ -22,21 +23,23 @@ public class SeguridadService implements UserDetailsService {
     private UsuarioRepository usuarioRepo;
 
     @Autowired
-    private RolRepository roRepo;
+    private RolRepository rolRepo;
 
     private BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
 
-
-    public void crearUsuarioAdmin(){
+    public void crearUsuarioAdmin() {
 
         List<Rol> listaDeRoles = new ArrayList<>();
 
+        Rol rolUser = new Rol();
+        rolUser.setRole("ROLE_USER");
+        rolRepo.save(rolUser);
+
         Rol rolAdmin = new Rol("ROLE_ADMIN");
+        rolRepo.save(rolAdmin);
 
         listaDeRoles.add(rolAdmin);
-
-        roRepo.save(rolAdmin);
 
         Usuario usuarioAdmin = new Usuario();
         usuarioAdmin.setUsername("admin");
@@ -51,17 +54,21 @@ public class SeguridadService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-        Usuario user = usuarioRepo.findUsuarioByUsername(username);
+        Usuario user = usuarioRepo.findByUsername(username);
 
+        // Codigo de camacho para reoorrer roles
         Set<GrantedAuthority> roles = new HashSet<GrantedAuthority>();
         for (Rol role : user.getRoles()) {
             roles.add(new SimpleGrantedAuthority(role.getRole()));
         }
 
+        //
         List<GrantedAuthority> grantedAuthorities = new ArrayList<>(roles);
 
-        return new org.springframework.security.core.userdetails.User(user.getUsername(),user.getPassword(), user.isAdmin(), true, true, true, grantedAuthorities);
+        // Hay que retornar un objeto de tipo userdetails por lo tanto hacemos esto y le mandamos los datos del usuario
+        // UserDetails userDetails = new User(usuario.getUsername(),usuario.getPassword(),roles);
+        return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), user.isAdmin(), true, true, true, grantedAuthorities);
+
+
     }
-
-
 }

@@ -15,8 +15,14 @@ import org.springframework.session.hazelcast.config.annotation.web.http.EnableHa
 @EnableHazelcastHttpSession
 @Configuration
 public class HazelCastConfiguration {
+
+    /**
+     * Configurando el servidor Hazelcast.
+     * @return
+     */
     @Bean
     public HazelcastInstance hazelcastInstance() {
+        //Configuración basica.
         MapAttributeConfig attributeConfig = new MapAttributeConfig()
                 .setName(HazelcastSessionRepository.PRINCIPAL_NAME_ATTRIBUTE)
                 .setExtractor(PrincipalNameExtractor.class.getName());
@@ -30,4 +36,5 @@ public class HazelCastConfiguration {
 
         return Hazelcast.newHazelcastInstance(config);
     }
+
 }
