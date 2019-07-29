@@ -22,12 +22,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Bean
     public BCryptPasswordEncoder passwordEncoder(){
+
         BCryptPasswordEncoder bCryptPasswordEncoder=new BCryptPasswordEncoder();
         return bCryptPasswordEncoder;
     }
 
-    // Esta clase sirve para cargar el usuario en memoria, es parecido a cuando se crea el usuario en aplication properties
-    // pero esta es la forma correcta de hacer
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 
@@ -42,7 +41,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-
                 .antMatchers("/css/**","/hazelcast/**", "/js/**").permitAll()
                 .antMatchers("/dbconsole/**").permitAll()
 
@@ -50,7 +48,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 //.antMatchers("/cliente/**").hasAnyRole("ADMIN", "USER")
                 //.antMatchers("/equipo/**").hasAnyRole("ADMIN", "USER")
                 //.antMatchers("/familia/**").hasAnyRole("ADMIN", "USER")
-                //.antMatchers("/").hasAnyRole("ADMIN", "USER")
+                .antMatchers("/").hasAnyRole("ADMIN", "USER")
                 // .anyRequest().authenticated() //cualquier llamada debe ser validada
                 .and()
                 .formLogin()// Esta se encarga de llamar al login por defecto

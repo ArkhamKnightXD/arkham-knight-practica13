@@ -46,7 +46,7 @@ public class EncuestaController {
     @RequestMapping("/")
     public String creacionEncuesta(Model model){
 
-        //seguridadService.crearUsuarioAdmin();
+     //   seguridadService.crearUsuarioAdmin();
 
         model.addAttribute("titulo", "Encuesta Bar Camp");
 

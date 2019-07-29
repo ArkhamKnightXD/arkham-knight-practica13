@@ -42,7 +42,14 @@
                 <label for="cumplieronExpectativas" class="control-label col-md-3">Las charlas cumplieron sus expectativas?</label>
 
                 <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6">
-                    <input type="number" name="cumplieronExpectativas" class="form-control" required placeholder="Las charlas cumplieron sus expectativas...">
+
+                    <select class="form-control" name="cumplieronExpectativas" required>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
                 </div>
 
             </div>
@@ -53,7 +60,13 @@
                 <label for="dominioDelTema" class="control-label col-md-3">Los Expositores demostraron dominio del tema?</label>
 
                 <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6">
-                    <input type="number" name="dominioDelTema" class="form-control " placeholder="Dominio del tema...">
+                    <select class="form-control" name="dominioDelTema" required>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
                 </div>
 
             </div>
@@ -64,7 +77,14 @@
                 <label for="instalacionesConfortables" class="control-label col-md-3">Las instalaciones eran confortables:</label>
 
                 <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6">
-                    <input type="number" name="instalacionesConfortables" class="form-control" required placeholder="Instalaciones confortables...">
+                    <select class="form-control" name="instalacionesConfortables" required>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+
                 </div>
 
             </div>

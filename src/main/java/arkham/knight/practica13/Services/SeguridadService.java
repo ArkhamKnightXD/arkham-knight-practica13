@@ -12,8 +12,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-
-import java.lang.reflect.Array;
+import javax.transaction.Transactional;
 import java.util.*;
 
 @Service
@@ -28,6 +27,7 @@ public class SeguridadService implements UserDetailsService {
     private BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
 
+    @Transactional
     public void crearUsuarioAdmin() {
 
         List<Rol> listaDeRoles = new ArrayList<>();
@@ -43,6 +43,7 @@ public class SeguridadService implements UserDetailsService {
 
         Usuario usuarioAdmin = new Usuario();
         usuarioAdmin.setUsername("admin");
+        //El error con el login debe de ser en los roles, pues este metodo es diferente al de la practica 10
         usuarioAdmin.setRoles(listaDeRoles);
 
         usuarioAdmin.setPassword(passwordEncoder.encode("1234"));
@@ -66,7 +67,7 @@ public class SeguridadService implements UserDetailsService {
         List<GrantedAuthority> grantedAuthorities = new ArrayList<>(roles);
 
         // Hay que retornar un objeto de tipo userdetails por lo tanto hacemos esto y le mandamos los datos del usuario
-        // UserDetails userDetails = new User(usuario.getUsername(),usuario.getPassword(),roles);
+        // UserDetails userDetails = new Usuario(user.getUsername(),user.getPassword(),user.isAdmin(),roles);
         return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), user.isAdmin(), true, true, true, grantedAuthorities);
 
 
