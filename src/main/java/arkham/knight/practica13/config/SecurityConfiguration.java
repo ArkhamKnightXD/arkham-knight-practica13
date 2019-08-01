@@ -48,7 +48,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 //.antMatchers("/cliente/**").hasAnyRole("ADMIN", "USER")
                 //.antMatchers("/equipo/**").hasAnyRole("ADMIN", "USER")
                 //.antMatchers("/familia/**").hasAnyRole("ADMIN", "USER")
-                .antMatchers("/").hasAnyRole("ADMIN", "USER")
+                //.antMatchers("/").hasAnyRole("ADMIN", "USER")
                 // .anyRequest().authenticated() //cualquier llamada debe ser validada
                 .and()
                 .formLogin()// Esta se encarga de llamar al login por defecto
