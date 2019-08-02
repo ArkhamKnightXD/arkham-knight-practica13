@@ -1,7 +1,8 @@
 package arkham.knight.practica13.Models;
 
-import javax.persistence.*;
-import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 @Entity
 public class Usuario {
@@ -14,14 +15,11 @@ public class Usuario {
     private String password;
     private boolean isAdmin;
 
-    @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
-    private List<Rol> roles;
 
-    public Usuario(String username, String password, boolean isAdmin, List<Rol> roles) {
+    public Usuario(String username, String password, boolean isAdmin) {
         this.username = username;
         this.password = password;
         this.isAdmin = isAdmin;
-        this.roles = roles;
     }
 
     public Usuario() {
@@ -59,11 +57,4 @@ public class Usuario {
         isAdmin = admin;
     }
 
-    public List<Rol> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(List<Rol> roles) {
-        this.roles = roles;
-    }
 }
