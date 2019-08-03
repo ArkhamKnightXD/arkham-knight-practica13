@@ -140,15 +140,11 @@ public class LogIn extends VerticalLayout implements BeforeEnterObserver {
             nuevoUsuario.setPassword(generatePassword());
             nuevoUsuario.setEmail(emailField.getValue());
             String pass = generatePassword();
-            if (!usuarioServices.existe(nuevoUsuario)) {
-                usuarioServices.crearUsuario(new Usuario(usuarioField.getValue(), pass, emailField.getValue(), false));
-                emailService.sendSimpleMessage(emailField.getValue(),
-                        "Registro de pagina para el usuario " + usuarioField.getValue(),
-                        usuarioField.getValue() + ", su contraseña es la siguiente: " + pass);
-                notification.setText("Usuario creado existosamente, verifique su email para completar el registro");
-            } else {
-                notification.open();
-            }
+            usuarioServices.crearUsuario(new Usuario(usuarioField.getValue(), pass, emailField.getValue(), false));
+            emailService.sendSimpleMessage(emailField.getValue(),
+                    "Registro de pagina para el usuario " + usuarioField.getValue(),
+                    usuarioField.getValue() + ", su contraseña es la siguiente: " + pass);
+            notification.setText("Usuario creado existosamente, verifique su email para completar el registro");
         });
 
         Button registro = new Button("Registrar Nuevo Usuario");
