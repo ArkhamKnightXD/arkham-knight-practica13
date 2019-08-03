@@ -42,6 +42,7 @@ dependencies {
     implementation 'com.vaadin:vaadin-charts-flow:6.3.0'
     implementation 'com.vaadin.addon:vaadin-charts:4.0.0-alpha4'
     implementation 'com.vaadin:vaadin-server:8.0.0.alpha8'
+    implementation 'org.springframework.boot:spring-boot-starter-mail:2.1.6.RELEASE'
 }
 dependencyManagement {
     imports {

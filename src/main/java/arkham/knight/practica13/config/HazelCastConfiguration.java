@@ -12,29 +12,29 @@ import org.springframework.session.hazelcast.PrincipalNameExtractor;
 import org.springframework.session.hazelcast.config.annotation.web.http.EnableHazelcastHttpSession;
 
 
-@EnableHazelcastHttpSession
-@Configuration
-public class HazelCastConfiguration {
-
-    /**
-     * Configurando el servidor Hazelcast.
-     * @return
-     */
-    @Bean
-    public HazelcastInstance hazelcastInstance() {
-        //Configuración basica.
-        MapAttributeConfig attributeConfig = new MapAttributeConfig()
-                .setName(HazelcastSessionRepository.PRINCIPAL_NAME_ATTRIBUTE)
-                .setExtractor(PrincipalNameExtractor.class.getName());
-
-        Config config = new Config();
-
-        config.getMapConfig(HazelcastSessionRepository.DEFAULT_SESSION_MAP_NAME)
-                .addMapAttributeConfig(attributeConfig)
-                .addMapIndexConfig(new MapIndexConfig(
-                        HazelcastSessionRepository.PRINCIPAL_NAME_ATTRIBUTE, false));
-
-        return Hazelcast.newHazelcastInstance(config);
-    }
-
-}
+//@EnableHazelcastHttpSession
+//@Configuration
+//public class HazelCastConfiguration {
+//
+//    /**
+//     * Configurando el servidor Hazelcast.
+//     * @return
+//     */
+//    @Bean
+//    public HazelcastInstance hazelcastInstance() {
+//        //Configuración basica.
+//        MapAttributeConfig attributeConfig = new MapAttributeConfig()
+//                .setName(HazelcastSessionRepository.PRINCIPAL_NAME_ATTRIBUTE)
+//                .setExtractor(PrincipalNameExtractor.class.getName());
+//
+//        Config config = new Config();
+//
+//        config.getMapConfig(HazelcastSessionRepository.DEFAULT_SESSION_MAP_NAME)
+//                .addMapAttributeConfig(attributeConfig)
+//                .addMapIndexConfig(new MapIndexConfig(
+//                        HazelcastSessionRepository.PRINCIPAL_NAME_ATTRIBUTE, false));
+//
+//        return Hazelcast.newHazelcastInstance(config);
+//    }
+//
+//}

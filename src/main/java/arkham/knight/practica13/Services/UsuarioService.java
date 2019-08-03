@@ -19,6 +19,10 @@ public class UsuarioService {
         usuarioRepo.save(usuario);
     }
 
+    public boolean existe(Usuario usuario) {
+        return !usuarioRepo.findByUsername(usuario.getUsername()).toString().isEmpty();
+    }
+
 
     public List<Usuario> listarUsuarios() {
 
