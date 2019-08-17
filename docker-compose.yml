@@ -2,8 +2,10 @@ version: '3'
 
 services:
 
-  spring-boot-mysql:
+  spring1:
     image: kerxd/spring-mysql-practica4
+
+    container_name: spring1
     
     environment:
       - SERVER_PORT=8080
@@ -12,14 +14,16 @@ services:
       - practica4-mysql
 
     ports:
-      - "8080:8080"
+      - "82:8080"
 
     depends_on:
       - mysqldb3
       
       
-  spring-boot-mysql-2:
+  spring2:
     image: kerxd/spring-mysql-practica4
+
+    container_name: spring2
     
     environment:
       - SERVER_PORT=8081
@@ -28,14 +32,16 @@ services:
       - practica4-mysql
 
     ports:
-      - "8081:8081"
+      - "83:8081"
 
     depends_on:
       - mysqldb3
       
       
-  spring-boot-mysql-3:
+  spring3:
     image: kerxd/spring-mysql-practica4
+
+    container_name: spring3
     
     environment:
       - SERVER_PORT=8082
@@ -44,7 +50,7 @@ services:
       - practica4-mysql
 
     ports:
-      - "8082:8082"
+      - "84:8082"
 
     depends_on:
       - mysqldb3
@@ -52,16 +58,19 @@ services:
       
       
   ha-proxy:
-    image: haproxy:2.0.2
+    image: haproxy-config
+    
+    container_name: docker-haproxy-config
     networks:
       - practica4-mysql
-    depends_on:
-      - spring-boot-mysql
-      - spring-boot-mysql-2
-      - spring-boot-mysql-3
 
+    depends_on:
+      - spring1
+      - spring2
+      - spring3
+    
     ports:
-      - 81:80
+      - "81:80"
       
       
 
