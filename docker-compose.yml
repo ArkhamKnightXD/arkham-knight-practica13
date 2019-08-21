@@ -54,7 +54,7 @@ services:
       
       
   haproxy:
-    image: haproxy-config
+    image: kerxd/haproxy-config
     
     container_name: docker-haproxy-config
     networks:
@@ -83,8 +83,6 @@ services:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=practica4  
 
-    ports:
-      - "3306:3306"
       
     volumes:
       - mysql_db:/var/lib/mysql
