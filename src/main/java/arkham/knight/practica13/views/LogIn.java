@@ -1,8 +1,8 @@
 package arkham.knight.practica13.views;
 
-import arkham.knight.practica13.Models.Usuario;
-import arkham.knight.practica13.Services.UsuarioService;
+import arkham.knight.practica13.models.Usuario;
 import arkham.knight.practica13.Utils.email.EmailService;
+import arkham.knight.practica13.services.UsuarioService;
 import com.vaadin.flow.component.Text;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dialog.Dialog;

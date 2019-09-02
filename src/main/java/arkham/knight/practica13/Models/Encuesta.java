@@ -1,4 +1,4 @@
-package arkham.knight.practica13.Models;
+package arkham.knight.practica13.models;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

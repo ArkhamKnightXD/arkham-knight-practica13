@@ -1,7 +1,7 @@
-package arkham.knight.practica13.Services;
+package arkham.knight.practica13.services;
 
-import arkham.knight.practica13.Models.Encuesta;
-import arkham.knight.practica13.Repositories.EncuestaRepository;
+import arkham.knight.practica13.models.Encuesta;
+import arkham.knight.practica13.repositories.EncuestaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;

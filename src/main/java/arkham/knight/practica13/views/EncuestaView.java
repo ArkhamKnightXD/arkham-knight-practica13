@@ -1,8 +1,8 @@
 package arkham.knight.practica13.views;
 
-import arkham.knight.practica13.Models.Encuesta;
-import arkham.knight.practica13.Models.Usuario;
-import arkham.knight.practica13.Services.EncuestaService;
+import arkham.knight.practica13.models.Encuesta;
+import arkham.knight.practica13.models.Usuario;
+import arkham.knight.practica13.services.EncuestaService;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.icon.VaadinIcon;

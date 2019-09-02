@@ -1,7 +1,7 @@
-package arkham.knight.practica13.Services;
+package arkham.knight.practica13.services;
 
-import arkham.knight.practica13.Models.Usuario;
-import arkham.knight.practica13.Repositories.UsuarioRepository;
+import arkham.knight.practica13.models.Usuario;
+import arkham.knight.practica13.repositories.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
