@@ -1,4 +1,4 @@
-package arkham.knight.practica13.Utils.email;
+package arkham.knight.practica13.utils.email;
 
 import org.springframework.mail.SimpleMailMessage;
 
