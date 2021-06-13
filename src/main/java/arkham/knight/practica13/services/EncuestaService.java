@@ -2,15 +2,17 @@ package arkham.knight.practica13.services;
 
 import arkham.knight.practica13.models.Encuesta;
 import arkham.knight.practica13.repositories.EncuestaRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
 public class EncuestaService {
 
-    @Autowired
-    private EncuestaRepository encuestaRepo;
+    private final EncuestaRepository encuestaRepo;
+
+    public EncuestaService(EncuestaRepository encuestaRepo) {
+        this.encuestaRepo = encuestaRepo;
+    }
 
 
     public void crearEncuesta(Encuesta encuesta){
@@ -22,21 +24,4 @@ public class EncuestaService {
 
         return encuestaRepo.findAll();
     }
-
-    public Encuesta encontrarEncuestaPorId(long id){
-
-        return encuestaRepo.findEncuestaById(id);
-    }
-
-    public void eliminarEncuesta(long id){
-
-        Encuesta encuestaToDelete = encuestaRepo.findEncuestaById(id);
-        encuestaRepo.delete(encuestaToDelete);
-    }
-
-    public void  borrarTodasLasEncuestas(){
-
-        encuestaRepo.deleteAll();
-    }
-
 }
